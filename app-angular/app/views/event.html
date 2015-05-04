@@ -1,0 +1,122 @@
+<!-- <div class="">
+  <img src="http://www.lanco.cl/site/wp-content/uploads/2013/10/DSCF06431.jpg">
+</div> -->
+  <div class="container" ng-controller="eventDetail as detail">
+  	<div ng-repeat="item in detail.list | filter:{'pk':4}">
+	  	<div class="row demo-samples">
+	    	<div class="col-xs-3">
+	    		<a href="/ong">
+					<img class="col-xs-12" src="http://www.reynareal.com/wp-content/uploads/2014/07/TECHO_Logo.jpg">
+				</a>
+				<div class="col-xs-12">
+					<div class="tile" style="height:auto;">
+	            		<h3 class="tile-title" style="border-bottom:1px dotted #ccc;padding-bottom:10px; margin-bottom:10px;">100 Usuarios inscritos</h3>
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>								
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>
+						<a href="#" class="col-xs-6">
+							<img class="col-xs-12" src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/User-Executive-Green-icon.png">
+						</a>
+						<a class="btn btn-primary btn-large col-xs-12" style="margin-top:20px;" ng-show="true" href="" data-dismiss="modal" data-toggle="modal" data-target="#done">Participar <span class="fui-heart pul-right"></span></a>
+	          		</div>
+				</div>
+				<share></share>
+
+		    </div> 
+
+	        <div class="col-xs-9">
+	        	<div style="border-bottom:1px dotted #ccc; margin-bottom:20px; width:100%; display:block; float:left;">
+					<h5 class="col-xs-10">{{ item.fields.nombre }}</h5>
+					<a class="btn btn-primary btn-large col-xs-2" style="margin-top:10px;" ng-show="true" href="" data-dismiss="modal" data-toggle="modal" data-target="#done">Participar <span class="fui-heart pul-right"></span></a>
+				</div>
+				<img src="{{ item.fields.imagen }}" class="col-xs-5">
+				<p class="col-xs-7">{{ item.fields.descripcion }}</p>
+				<h7 class="col-xs-12" style="margin-top:20px; background-color:#3498DB; color:#fff; margin-bottom:20px; border-radius:4px;">
+					<span class="fui-list"></span> Detalles
+				</h7>
+				<div class="map col-xs-3">
+	        		<img src="http://www.outdoor.cl/wp-content/themes/outdoor/ico/map_overlay.png" class="overlay">
+					<img  class="col-xs-12 map-image" src="https://maps.googleapis.com/maps/api/staticmap?center={{ item.fields.cordxy }}&zoom=15&size=250x250&maptype=roadmap&markers=color:red%7Clabel:C%7C{{ item.fields.cordxy }}&sensor=false">
+				</div>
+				<div class="col-xs-6" style="font-size:15px;">
+					<div>
+						<span class="fui-location"></span> <strong>Ubicacion:</strong> {{ item.fields.direccion }}
+					</div>
+					<div>
+						<span class="fui-calendar-solid"></span> <strong>Fecha:</strong> {{ item.fields.fecha_inicio }} - {{ item.fields.fecha_termino }}
+					</div>
+					<div>
+						<span class="fui-user"></span> <strong>Voluntarios:</strong> {{ item.fields.plaza }}
+					</div>
+					<div>
+						<span class="fui-radio-checked"></span> <strong>Habilidades:</strong> Liderazgo, Contruccion, Social y Tiempo 
+					</div>		
+				</div>
+				<div ng-controller="chart" class="col-xs-3">
+				  	<canvas donutchart options="myChartOptions" data="myChartData" width="300" height="300"></canvas>
+				</div>
+			</div>
+				</div>
+
+
+
+		<!-- Account number -->
+		<div class="modal fade" id="done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content col-xs-12">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><span class="fui-heart"></span> Gracias por inscribirte</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>Ya estas inscrito en el voluntariado para <strong>{{ detail.detail.name }}</strong> el día {{ detail.detail.date }}</p>
+				<div class="addthisevent col-xs-12" style="margin-left:130px; margin-bottom:30px;">
+					<div class="date">
+						<span class="mon">JUN</span>
+						<span class="day">12</span>
+						<div class="bdr1"></div>
+						<div class="bdr2"></div>
+					</div>
+					<div class="desc">
+						<p>
+							<strong class="hed">{{ item.fields.nombre }}</strong>
+							<span class="des">Location: {{ item.fields.direccion }}</span>
+						</p>
+					</div>
+					<span class="_start">{{ detail.detail.date }}</span>
+					<span class="_end">11-05-2012 11:38:46</span>
+					<span class="_zonecode">40</span>
+					<span class="_summary">{{ item.fields.nombre }}</span>
+					<span class="_description">{{ item.fields.descripcion }}</span>
+					<span class="_location">{{ item.fields.direccion }}</span>
+					<span class="_organizer">Organizer</span>
+					<span class="_organizer_email">Organizer e-mail</span>
+					<span class="_all_day_event">false</span>
+					<span class="_date_format">DD/MM/YYYY</span>
+				</div>
+
+		      </div>
+		      <div class="modal-footer col-xs-12">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- end account nunber -->
+	    </div>
+
+</div> 
+
+    <script type="text/javascript" src="https://addthisevent.com/libs/1.5.8/ate.min.js"></script> 

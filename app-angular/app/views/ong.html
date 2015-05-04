@@ -1,0 +1,137 @@
+<!-- <div class="">
+  <img src="http://www.lanco.cl/site/wp-content/uploads/2013/10/DSCF06431.jpg">
+</div> -->
+  <div class="container" ng-controller="ongDetail as ong">
+  	<div class="row demo-samples">
+    	<div class="col-xs-3">
+			<img class="col-xs-12" src="{{ ong.detail[0].fields.imagen }}">
+			<div class="col-xs-12">
+				<div class="tile" style="height:auto;">
+            		<h3 class="tile-title" style="border-bottom:1px dotted #ccc;padding-bottom:10px; margin-bottom:10px;">Contacto</h3>
+					<ul style="text-align:left; padding:0px; list-style:none;">
+						<li><small><span class="fui-arrow-right"></span> {{ ong.detail[0].fields.telefono }} </small></li>
+						<!-- <li><small>{{ ong.detail.address }}</small></li>-->						
+						<li><small><span class="fui-arrow-right"></span> {{ ong.detail[0].fields.email }} </small></li>
+						<li><small><span class="fui-arrow-right"></span> <a href="{{ ong.detail[0].fields.sitio_web }}">Ir al Sitio web</a></small></li>
+					</ul>
+          		</div>
+			</div>
+			<share></share>
+
+	    </div> <!-- /todo list -->
+
+        <div class="col-xs-9">
+        	<div class="col-xs-12" style="border-bottom:1px dotted #ccc; margin-bottom:20px;">
+				<h5 class="col-xs-10"> {{ ong.detail[0].fields.nombre }} </h5>
+				<a class="btn btn-success btn-large col-xs-2" style="margin-top:10px;" data-toggle="modal" data-target="#myModal" ng-show="true" href="http://designmodo.com/flat">Donar dinero <span class="fui-heart pul-right"></span></a>
+			</div>
+			<div class="col-xs-12">
+				<div class="map col-xs-4" style="height: 250px;">
+	        		<img src="http://www.outdoor.cl/wp-content/themes/outdoor/ico/map_overlay.png" class="overlay">
+					<img  class="col-xs-12 map-image" src="https://maps.googleapis.com/maps/api/staticmap?center={{ ong.detail[0].fields.direccion }}&zoom=15&size=250x250&maptype=roadmap&markers=color:red%7Clabel:C%7C{{ ong.detail[0].fields.direccion }}&sensor=false">
+				</div>
+				<p class="col-xs-8">{{ ong.detail[0].fields.descripcion }}</p>
+			</div>
+			<div class="col-xs-12">
+				<h6 class="col-xs-10">Participa como voluntario</h6>
+		        <div  ng-controller="events as event">
+		          <div ng-repeat="item in event.list">
+		            <!-- item -->
+		            <div class="col-xs-4">
+		              <a href="/event/{{ items.fields.nombre }}">
+		              <div class="tile">
+		                <div class="image-event">
+		                  <img src="{{ item.fields.imagen }}" alt="Pensils" class="tile-image">
+		                </div>
+		                <h3 class="tile-title">{{ item.fields.nombre }}</h3>
+		                <small>{{ item.fields.fecha_inicio | date }} </small>
+		              </a>
+		                <a class="btn btn-block btn-primary btn-large " n_g-show="{{ item.fields.assitant }}" href="" data-dismiss="modal" data-toggle="modal" data-target="#done">Participar <span class="fui-heart pul-right"></span></a>
+		                <!--<a class="btn btn-block btn-large disabled" style="margin-top:0px;" ng-hide="{{ item.assitant }}"  href="http://designmodo.com/flat">Participando</a>-->
+		              </div>
+		            </div>
+		            <!-- end item -->
+		        </div>
+
+			</div>
+        </div>
+
+	</div> 
+
+	<!-- Account number -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content col-xs-12">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel"><span class="fui-lock"></span> Donacion para {{ ong.detail.name }}</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Con tu aporte ayudaras a que esta ong siga ayudando a los que mas lo necesitan, esta transaccion se realiza bajo estrictos standares de <strong>Seguridad</strong></p>
+			<div style="height:300px;" class="col-xs-12">
+				<div  class="col-xs-4">
+					<img src="images/icons/svg/retina.svg" alt="Retina">
+				</div>
+				<div  class="col-xs-8">
+					<select class="col-xs-12">
+					  <option value="0">Selecciona tu banco</option>
+					  <option value="0">Banco de Chile</option>
+					  <option value="0">Banco Santander</option>
+					  <option value="0">Banco BCI</option>
+					  <option value="0">Banco Estado</option>
+					  <option value="0">Banco ITAU</option>
+					</select>
+					<select class="col-xs-12">
+					  <option value="0">Tipo de Cuenta</option>
+					  <option value="0">Cuenta Corriente</option>
+					  <option value="0">Cuenta Vista</option>
+					</select>
+					<div class="col-xs-10">
+						<input type="text" class="form-control" placeholder="Monto Ejemplo: 10.000" style="margin-bottom:10px;" onkeypress="return isNumberKey(event)" />
+						<input type="text" class="form-control" placeholder="Numero de Cuenta" style="margin-bottom:10px;" onkeypress="return isNumberKey(event)"/>
+						<input type="text" class="form-control" placeholder="Digi-pass" style="margin-bottom:10px;" onkeypress="return isNumberKey(event)" />
+					</div>
+				</div>
+	        </div>
+	      </div>
+	      <div class="modal-footer col-xs-12">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#thanks" >Hacer Donación</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- end account nunber -->
+
+	<!-- Account number -->
+	<div class="modal fade" id="thanks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content col-xs-12">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel"><span class="fui-heart"></span> Gracias!</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>¡Gracias por ayudar a que <strong>{{ ong.detail.name }}</strong> continue con su trabajo!</p>
+			
+	      </div>
+	      <div class="modal-footer col-xs-12">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	        <button type="button" class="btn btn-primary">Hacer Donación</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- end account nunber -->
+
+</div>
+<script>
+	$("select").selectpicker({style: 'btn-inverse col-xs-12'});
+
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+        	return false;
+        return true;
+   	}
+</script>

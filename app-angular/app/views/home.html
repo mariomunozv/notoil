@@ -1,0 +1,137 @@
+<!-- <div class="">
+  <img src="http://www.lanco.cl/site/wp-content/uploads/2013/10/DSCF06431.jpg">
+</div> -->
+      <div class="image-header" style="background-image: url(http://oscarvaldelvira.com/wp-content/uploads/2013/03/voluntarios-cabecera.jpg);
+width: 100%;
+position: absolute;
+z-index: -1;
+top: 0px;
+height: 450px;
+background-attachment: initial;
+background-size: 100%;">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Ayudanos a ayudar.</h1>
+          <p>Con tu ayuda muchas ONGS podran contar con voluntarios comprometidos y jugados por los demas</p>
+          <p><a class="btn btn-lg btn-warning" href="#" role="button">¡Inscribete!</a></p>
+        </div>
+      </div>
+
+      </div>
+
+
+  <div class="container">
+  <div class="row demo-samples" style="margin-top:360px;">
+<!--     <div class="col-xs-3">
+      <div class="todo">
+        <div class="todo-search">
+              <input class="todo-search-field" type="search" value="" placeholder="Search">
+            </div>
+            <ul>
+              <li class="todo-done">
+                <div class="todo-icon fui-gear"></div>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Trabajo con <strong>herramientas</strong>
+                  </h4>
+                  Contruir cosas para la gente
+                </div>
+              </li>
+              <li class="todo-done">
+                <div class="todo-icon fui-user"></div>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Actividades <strong>deportivas</strong>
+                  </h4>
+                  Requiere ganas de moverse
+                </div>
+              </li>
+              <li>
+                <div class="todo-icon fui-heart"></div>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Voluntariado <strong>Profesional</strong>
+                  </h4>
+                  Quieres ayudar con tu profesion
+                </div>
+              </li>
+              <li>
+                <div class="todo-icon fui-time"></div>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Fix bug on a <strong>Website</strong>
+                  </h4>
+                  As soon as possible
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> <!-- /todo list --> 
+
+        <div class="col-xs-12 demo-video">
+          <div ng-repeat="item in event.list">
+            <!-- item -->
+            <div class="col-xs-3">
+              <a href="/event/{{ items.fields.nombre }}">
+              <div class="tile">
+                <div class="image-event">
+                  <img src="{{ item.fields.imagen }}" alt="Pensils" class="tile-image">
+                </div>
+                <h3 class="tile-title">{{ item.fields.nombre }}</h3>
+                <small>{{ item.fields.fecha_inicio | date }} </small>
+              </a>
+                <a class="btn btn-block btn-primary btn-large " n_g-show="{{ item.fields.assitant }}" href="" data-dismiss="modal" data-toggle="modal" data-target="#done">Participar <span class="fui-heart pul-right"></span></a>
+                <!--<a class="btn btn-block btn-large disabled" style="margin-top:0px;" ng-hide="{{ item.assitant }}"  href="http://designmodo.com/flat">Participando</a>-->
+              </div>
+            </div>
+            <!-- end item -->
+          </div>
+
+        </div>
+
+    </div> 
+  </div>
+  <!-- Account number -->
+  <div class="modal fade" id="done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content col-xs-12">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel"><span class="fui-heart"></span> Gracias por inscribirte</h4>
+        </div>
+        <div class="modal-body">
+          <p>Ya estas inscrito en el voluntariado para <strong>{{ detail.detail.name }}</strong> el día {{ detail.detail.date }}</p>
+      <div class="addthisevent col-xs-12" style="margin-left:130px; margin-bottom:30px;">
+        <div class="date">
+          <span class="mon">JUN</span>
+          <span class="day">12</span>
+          <div class="bdr1"></div>
+          <div class="bdr2"></div>
+        </div>
+        <div class="desc">
+          <p>
+            <strong class="hed">{{ detail.detail.name }}</strong>
+            <span class="des">Location: {{ detail.detail.ubicacionName }}</span>
+          </p>
+        </div>
+        <span class="_start">{{ detail.detail.date }}</span>
+        <span class="_end">11-05-2012 11:38:46</span>
+        <span class="_zonecode">40</span>
+        <span class="_summary">Summary of the event</span>
+        <span class="_description">Description of the event</span>
+        <span class="_location">Location of the event</span>
+        <span class="_organizer">Organizer</span>
+        <span class="_organizer_email">Organizer e-mail</span>
+        <span class="_all_day_event">false</span>
+        <span class="_date_format">DD/MM/YYYY</span>
+      </div>
+
+        </div>
+        <div class="modal-footer col-xs-12">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end account nunber -->
+  <script type="text/javascript" src="https://addthisevent.com/libs/1.5.8/ate.min.js"></script>
