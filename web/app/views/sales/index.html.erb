@@ -1,0 +1,40 @@
+<h1>Listing sales</h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-heading panel-heading-toolbox">
+    <div class="panel-toolbar">
+      <%= link_to new_sale_path, class: "btn btn-primary", data: { tooltip: 'tooltip' }, title: "New Sale" do %>
+        <span class="glyphicon glyphicon-plus"></span>
+      <% end %>
+    </div>    
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Total</th>
+                  </tr>
+      </thead>
+
+      <tbody>
+        <% @sales.each do |sale| %>
+          <tr>
+                              <td><%= link_to sale.name, sale_path(sale) %></td>
+                              <td><%= sale.description %></td>
+                              <td><%= sale.total %></td>
+                      </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel-footer panel-footer-toolbox">
+    <div class="panel-toolbar">
+      <%= will_paginate @sales, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+</div>
+
+<br>

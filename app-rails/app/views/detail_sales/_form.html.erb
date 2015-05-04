@@ -1,0 +1,37 @@
+<%= form_for(@detail_sale) do |f| %>
+<% if @detail_sale.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@detail_sale.errors.count, "error") %> prohibited this detail_sale from being saved:</h2>
+
+    <ul>
+        <% @detail_sale.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :quantity %>
+            <%= f.number_field :quantity, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :valor %>
+            <%= f.number_field :valor, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :sale_id %>
+            <%= f.collection_select :sale_id, Sale.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="form-group">
+                <%= f.label :product_id %>
+            <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

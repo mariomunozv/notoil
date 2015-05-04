@@ -1,0 +1,32 @@
+<h1>Detail family</h1>
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading panel-heading-toolbox">
+		<div class="panel-toolbar">
+			<%= link_to 'Volver', families_path, :class => "btn btn-link" %>
+			<%= link_to edit_family_path(@family), data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Edit" do %>
+	          	<span class="glyphicon glyphicon-pencil"></span>
+	        <% end %>
+			<%= link_to @family, method: :delete, data: { confirm: 'Are you sure?' }, data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Delete" do %>
+	          	<span class="glyphicon glyphicon-trash"></span>
+	        <% end %>
+		</div>    
+	</div>
+	<div class="panel-body">
+		
+		<table class="table table-bordered">
+			<tbody>
+							<tr>
+				  <th>Name:</th>
+				  <td><%= @family.name %></td>
+				</tr>
+							<tr>
+				  <th>Description:</th>
+				  <td><%= @family.description %></td>
+				</tr>
+						</tbody>
+		</table>
+
+	</div>
+</div>

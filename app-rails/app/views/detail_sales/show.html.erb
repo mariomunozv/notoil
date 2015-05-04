@@ -1,0 +1,44 @@
+<h1>Detail detail_sale</h1>
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading panel-heading-toolbox">
+		<div class="panel-toolbar">
+			<%= link_to 'Volver', detail_sales_path, :class => "btn btn-link" %>
+			<%= link_to edit_detail_sale_path(@detail_sale), data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Edit" do %>
+	          	<span class="glyphicon glyphicon-pencil"></span>
+	        <% end %>
+			<%= link_to @detail_sale, method: :delete, data: { confirm: 'Are you sure?' }, data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Delete" do %>
+	          	<span class="glyphicon glyphicon-trash"></span>
+	        <% end %>
+		</div>    
+	</div>
+	<div class="panel-body">
+		
+		<table class="table table-bordered">
+			<tbody>
+							<tr>
+				  <th>Name:</th>
+				  <td><%= @detail_sale.name %></td>
+				</tr>
+							<tr>
+				  <th>Quantity:</th>
+				  <td><%= @detail_sale.quantity %></td>
+				</tr>
+							<tr>
+				  <th>Valor:</th>
+				  <td><%= @detail_sale.valor %></td>
+				</tr>
+							<tr>
+					<th>Sale:</th>
+					<td><%= @detail_sale.sale.name %></td>
+				</tr>
+							<tr>
+					<th>Product:</th>
+					<td><%= @detail_sale.product.name %></td>
+				</tr>
+						</tbody>
+		</table>
+
+	</div>
+</div>

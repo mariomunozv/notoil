@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: 1
+  valor: 1
+  sale_id: 
+  product_id: 
+
+two:
+  name: MyString
+  quantity: 1
+  valor: 1
+  sale_id: 
+  product_id: 

@@ -1,0 +1,36 @@
+<h1>Detail sale</h1>
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading panel-heading-toolbox">
+		<div class="panel-toolbar">
+			<%= link_to 'Volver', sales_path, :class => "btn btn-link" %>
+			<%= link_to edit_sale_path(@sale), data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Edit" do %>
+	          	<span class="glyphicon glyphicon-pencil"></span>
+	        <% end %>
+			<%= link_to @sale, method: :delete, data: { confirm: 'Are you sure?' }, data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Delete" do %>
+	          	<span class="glyphicon glyphicon-trash"></span>
+	        <% end %>
+		</div>    
+	</div>
+	<div class="panel-body">
+		
+		<table class="table table-bordered">
+			<tbody>
+							<tr>
+				  <th>Name:</th>
+				  <td><%= @sale.name %></td>
+				</tr>
+							<tr>
+				  <th>Description:</th>
+				  <td><%= @sale.description %></td>
+				</tr>
+							<tr>
+				  <th>Total:</th>
+				  <td><%= @sale.total %></td>
+				</tr>
+						</tbody>
+		</table>
+
+	</div>
+</div>

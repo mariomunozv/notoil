@@ -1,0 +1,52 @@
+<h1>Detail product</h1>
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading panel-heading-toolbox">
+		<div class="panel-toolbar">
+			<%= link_to 'Volver', products_path, :class => "btn btn-link" %>
+			<%= link_to edit_product_path(@product), data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Edit" do %>
+	          	<span class="glyphicon glyphicon-pencil"></span>
+	        <% end %>
+			<%= link_to @product, method: :delete, data: { confirm: 'Are you sure?' }, data: { tooltip: 'tooltip' }, class: "btn btn-default", title: "Delete" do %>
+	          	<span class="glyphicon glyphicon-trash"></span>
+	        <% end %>
+		</div>    
+	</div>
+	<div class="panel-body">
+		
+		<table class="table table-bordered">
+			<tbody>
+							<tr>
+				  <th>Barcode:</th>
+				  <td><%= @product.barcode %></td>
+				</tr>
+							<tr>
+				  <th>Brand:</th>
+				  <td><%= @product.brand %></td>
+				</tr>
+							<tr>
+				  <th>Name:</th>
+				  <td><%= @product.name %></td>
+				</tr>
+							<tr>
+				  <th>Description:</th>
+				  <td><%= @product.description %></td>
+				</tr>
+							<tr>
+				  <th>Price:</th>
+				  <td><%= @product.price %></td>
+				</tr>
+							<tr>
+				  <th>Price net:</th>
+				  <td><%= @product.price_net %></td>
+				</tr>
+							<tr>
+					<th>Family:</th>
+					<td><%= @product.family.name %></td>
+				</tr>
+						</tbody>
+		</table>
+
+	</div>
+</div>
